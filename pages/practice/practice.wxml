@@ -1,0 +1,30 @@
+<!--pages/practice.wxml-->
+<view style="justify-content: center;align-items: center;width:100%;display:flex;margin-bottom:20px;">
+  <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image><text><text style="color:#666666;">{{userInfo.nickName}}</text>的练习</text>
+</view>
+
+<view style="margin-top:20px;justify-content: center;align-items: center;width:100%;display:flex;">
+  <view style="width:600rpx;background-color:#aaaaaa;padding-top:15rpx;">
+    <view style="display:flex;flex-direction:row;flex-wrap:wrap;margin-bottom:15rpx;" wx:for="{{numbers}}">
+        <button style="width:100rpx;height:100rpx;align-items: center;justify-content: center;display: flex;color:#666666;" wx:for="{{item}}" wx:for-item="_item" bindtap="commitNumber" data-currentNum="{{_item}}">
+          {{_item}}
+        </button>
+    </view>
+  </view>
+</view>
+
+<view style="margin-top:20px;justify-content: center;align-items: center;width:100%;display:flex;">
+  <button wx:if="{{status === 0}}" bindtap="changeNumbers" type="default">换一组</button>
+  <button wx:if="{{status === 0}}" bindtap="startPractice" type="primary">开始练习</button>
+  <button wx:if="{{status === 1}}" type="default" disabled="true">练习中……</button>
+  <button wx:if="{{status === 1}}" type="warn" bindtap="stopPractice">不练了</button>
+</view>
+
+<view wx:if="{{status === 1}}" style="margin-top:20px;justify-content: center;align-items: center;width:100%;display:flex;background-color:#aaaaaa;">
+  <text>{{practiceHour}} 时 {{practiceMin}} 分 {{practiceSec}} 秒</text>
+</view>
+
+<view style="margin-top:20px;" wx:if="{{status === 1}}" class="progress-box">
+  <progress percent="{{practiceProgress}}" show-info stroke-width="5"/>
+</view>
+

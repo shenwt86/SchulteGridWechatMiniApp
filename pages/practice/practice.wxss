@@ -1,0 +1,6 @@
+/* pages/practice.wxss */
+.userinfo-avatar {
+  width: 48rpx;
+  height: 48rpx;
+  border-radius: 50%;
+}

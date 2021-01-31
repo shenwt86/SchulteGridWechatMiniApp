@@ -1,0 +1,10 @@
+<view style="padding:20px;">
+  <block wx:for="{{logs}}" wx:for-item="log">
+  <view style="justify-content: center;align-items: center;width:100%;display:flex;flex-direction:row;font-size:14px;color:#666666">
+    <image slot="title" src="{{log.userAvatar}}" class="userinfo-avatar"></image>
+    <view class="log-item">{{log.userName}}</view>
+    <view class="log-item">{{log.practiceTime[0]}}时{{log.practiceTime[1]}}分{{log.practiceTime[2]}}秒</view>
+    <view class="log-item">{{log.dateTime}}</view>
+  </view>
+  </block>
+</view>
